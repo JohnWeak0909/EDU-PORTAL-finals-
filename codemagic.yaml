@@ -1,0 +1,20 @@
+workflows:
+  default-workflow:
+    name: Build APK
+    instance_type: mac_mini_m1
+    environment:
+      node: latest
+    triggering:
+      events:
+        - push
+      branch:
+        patterns:
+          - pattern: '*'
+            include: true
+    scripts:
+      - name: Install dependencies
+        script: npm install --legacy-peer-deps
+      - name: Build APK
+        script: npx expo prebuild --platform android && cd android && ./gradlew assembleRelease
+    artifacts:
+      - android/app/build/outputs/apk/release/*.apk
