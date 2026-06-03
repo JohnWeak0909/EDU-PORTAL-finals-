@@ -11,22 +11,13 @@
     "preview": {
       "distribution": "internal",
       "android": {
-        "buildType": "apk",
-        "gradleCommand": ":app:assembleRelease"
-      },
-      "node": "20.11.0",
-      "npm": {
-        "version": "10.2.4"
+        "buildType": "apk"
       }
     },
     "production": {
       "autoIncrement": true,
       "android": {
         "buildType": "app-bundle"
-      },
-      "node": "20.11.0",
-      "npm": {
-        "version": "10.2.4"
       }
     }
   },
